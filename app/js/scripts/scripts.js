@@ -35,8 +35,8 @@
         var mp3Src = $('<source />', {'src': sourceBase+'audio/aint-from-my-hood.mp3', 'type': 'audio/mpeg'}),
             oggSrc = $('<source />', {'src': sourceBase+'audio/aint-from-my-hood.ogg', 'type': 'audio/ogg'});
     	} else {
-        mp3Src = $('<source />', {'src': sourceBase+'audio/4-my-hood.mp3', 'type': 'audio/mpeg'}),
-        oggSrc = $('<source />', {'src': sourceBase+'audio/4-my-hood.ogg', 'type': 'audio/ogg'});
+        var mp3Src = $('<source />', {'src': sourceBase+'audio/4-my-hood.mp3', 'type': 'audio/mpeg'}),
+            oggSrc = $('<source />', {'src': sourceBase+'audio/4-my-hood.ogg', 'type': 'audio/ogg'});
     	}
       $newPlug.html([mp3Src, oggSrc]).appendTo($main);
       location.address.city === 'Richmond' ? $body.css('background-image', 'url("./img/tank.jpg")') : $body.css('background-image', 'url("./img/no-respect.jpg")');
