@@ -150,10 +150,3 @@ $mq-desktop				: 1382px !default;
 		@content;
 	}
 }
-
-// PRINT STYLESHEET
-@mixin print {
-	@media print {
-		@content;
-	}
-}
