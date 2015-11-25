@@ -24,22 +24,27 @@
 
 
     function onGeoSuccess(location) {
-      var $lurk = $('<img />', {class: 'lurkin', src: '/img/lurkin.gif'});
+      var $lurk = $('<img />', {class: 'where-u-from', src: './img/lurkin.gif'});
+      var $holdItDown = $('<img />', {class: 'where-u-from', src: './img/puttin_it_down.gif'});
       $whereU.fadeOut(350, function() {
         clearInterval(repeat);
       });
 
       var $newPlug = $('<audio />', {autoplay: true, class:'the-plug'});
 
-    	if (!location.address.city === 'Richmond') {
+    	if (location.address.city !== 'Richmond') {
         var mp3Src = $('<source />', {'src': sourceBase+'audio/aint-from-my-hood.mp3', 'type': 'audio/mpeg'}),
             oggSrc = $('<source />', {'src': sourceBase+'audio/aint-from-my-hood.ogg', 'type': 'audio/ogg'});
+
+        $body.css('background-image', 'url("./img/no-respect.jpg")');
     	} else {
         var mp3Src = $('<source />', {'src': sourceBase+'audio/4-my-hood.mp3', 'type': 'audio/mpeg'}),
             oggSrc = $('<source />', {'src': sourceBase+'audio/4-my-hood.ogg', 'type': 'audio/ogg'});
+
+        $body.css('background-image', 'url("./img/tank.jpg")').append($holdItDown)
     	}
       $newPlug.html([mp3Src, oggSrc]).appendTo($main);
-      location.address.city === 'Richmond' ? $body.css('background-image', 'url("./img/tank.jpg")') : $body.css('background-image', 'url("./img/no-respect.jpg")');
+      location.address.city === 'Richmond' ? $body.css('background-image', 'url("./img/tank.jpg")').append($holdItDown) : $body.css('background-image', 'url("./img/no-respect.jpg")');
     }
 
     //The callback function executed when the location could not be fetched.

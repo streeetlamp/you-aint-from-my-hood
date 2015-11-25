@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 files: {
-                    'build/css/style.css' : 'app/css/style.css'
+                    'css/style.css' : 'app/css/style.css'
                 }
             }
         },
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         cmq: {
             your_target: { 
                 files: {
-                    'build/css/style.css' : 'build/css/style.css'
+                    'css/style.css' : 'css/style.css'
                 }
             }
         },
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'build/css/style.css': ['build/css/style.css']
+                    'css/style.css': ['css/style.css']
                 }
             }
         },
@@ -103,16 +103,16 @@ module.exports = function(grunt) {
         uglify: {
             scripts: {
                 src: 'app/js/main.js',
-                dest: 'build/js/main.js'
+                dest: 'js/main.js'
             },
         },
 
         copy: {
           main: {
             expand: true,
-            cwd: 'app/img/',
-            src: '**',
-            dest: 'build/img/',
+            cwd: 'app/',
+            src: [ 'img/**', 'audio/**' ],
+            dest: '',
           },
         },
 
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
           build: {
             cwd: 'app/include',
             src: [ '*.html' ],
-            dest: 'build/',
+            dest: '',
             options: {
               flatten: true,
               includePath: 'app/include/parts'
